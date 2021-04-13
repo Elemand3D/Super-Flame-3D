@@ -387,7 +387,7 @@ namespace SimulatorWinForm
                 case 2: return "США";
                 case 3: return "Япония";
             }
-            return "???";
+            return "Неизвестно";
         }
         public string GetGenderName(int gender)
         {
