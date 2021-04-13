@@ -375,7 +375,8 @@ namespace SimulatorWinForm
             button5.Enabled = true;
             button7.Enabled = false;
         }
-        //Клиенты такси
+        //Клиенты такси))
+        //Тест репозиториев
         TaxiCustomers[] customers = new TaxiCustomers[32];
         public string GetRaceName(int race)
         {
@@ -386,7 +387,7 @@ namespace SimulatorWinForm
                 case 2: return "США";
                 case 3: return "Япония";
             }
-            return "Неизвестно";
+            return "???";
         }
         public string GetGenderName(int gender)
         {
