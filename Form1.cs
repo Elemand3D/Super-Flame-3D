@@ -411,6 +411,7 @@ namespace SimulatorWinForm
             customers[6] = new TaxiCustomers("Навальный", 0, 0);
             customers[7] = new TaxiCustomers("Moby (яйценюх)", 0, 0);
             customers[8] = new TaxiCustomers("Кличко", 0, 0);
+            customers[9] = new TaxiCustomers("Геральт Из Ривии", 0, 228);
             RandomCustomers();
 
             DialogResult dialogResult = MessageBox.Show("Имя: " + customers[r].name + Environment.NewLine
