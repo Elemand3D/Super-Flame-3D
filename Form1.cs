@@ -399,13 +399,13 @@ namespace SimulatorWinForm
             }
             return "Неизвестно";
         }
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)   // При нажатии кнопки создаётся толпа людей каждый раз
         {
             int r = RandomCustomers();
             customers[0] = new TaxiCustomers("Гордон Фримен", 0, 2);
             customers[1] = new TaxiCustomers("Лысый Из Лоста", 0, 2);
             customers[2] = new TaxiCustomers("Китаец Из Лоста", 0, 3);
-            customers[3] = new TaxiCustomers("G-MAN", 0, 999);
+            customers[3] = new TaxiCustomers("G-MAN", 0, 228);
             customers[4] = new TaxiCustomers("Ozon671Games3", 0, 1);
             customers[5] = new TaxiCustomers("Абдуль", 0, 1);
             customers[6] = new TaxiCustomers("Навальный", 0, 0);
@@ -434,6 +434,12 @@ namespace SimulatorWinForm
             }
 
         }
+        public int RandomCustomers()
+        {
+            Random rand = new Random();
+            int r = rand.Next(10);
+            return r;
+        }
         public void CarDamage()
         {
             int r = RandomCustomers();
@@ -447,12 +453,7 @@ namespace SimulatorWinForm
 
         }
 
-        public int RandomCustomers()
-        {
-            Random rand = new Random();
-            int r = rand.Next(0, 9);
-            return r;
-        }
+        
 
         public void MoneyManagement()
         {
