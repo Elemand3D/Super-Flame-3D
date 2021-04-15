@@ -21,13 +21,6 @@ namespace SimulatorWinForm
         int oneMinute = 0; // Номер нормальных минут (0-9).
         double milSec = 49D;// Номер секунд 00.00-60.00
 
-       
-
-
-
-
-
-        
 
         // Состояние машины.
         double wheels = 60D;
@@ -38,7 +31,7 @@ namespace SimulatorWinForm
         double gas = 60D;
 
 
-        //WindowsMediaPlayer player2 = new WindowsMediaPlayer();
+        //WindowsMediaPlayer soundPlayer = new WindowsMediaPlayer();
 
 
 
@@ -381,9 +374,7 @@ namespace SimulatorWinForm
         // Кнопки прокачки (SkillUp.cs)
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.iq;
+            SkillUp skillUp = new SkillUp(player1.point, player1.iq, 1);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.iq = skillUp.skill;
@@ -391,9 +382,7 @@ namespace SimulatorWinForm
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.power;
+            SkillUp skillUp = new SkillUp(player1.point, player1.power, 1);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.power = skillUp.skill;
@@ -401,9 +390,7 @@ namespace SimulatorWinForm
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.driving;
+            SkillUp skillUp = new SkillUp(player1.point, player1.driving, 1);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.driving = skillUp.skill;
@@ -411,9 +398,7 @@ namespace SimulatorWinForm
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.speech;
+            SkillUp skillUp = new SkillUp(player1.point, player1.speech, 1);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.speech = skillUp.skill;
@@ -421,9 +406,7 @@ namespace SimulatorWinForm
 
         private void pictureBox13_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.virus;
+            SkillUp skillUp = new SkillUp(player1.point, player1.virus, 1);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.virus = skillUp.skill;
@@ -431,9 +414,7 @@ namespace SimulatorWinForm
 
         private void pictureBox12_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.ukraine;
+            SkillUp skillUp = new SkillUp(player1.point, player1.ukraine, 1);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.ukraine = skillUp.skill;
@@ -441,9 +422,7 @@ namespace SimulatorWinForm
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.maxHp;
+            SkillUp skillUp = new SkillUp(player1.point, player1.maxHp, 10);
             skillUp.multiplierSkill = 10;
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
@@ -452,10 +431,7 @@ namespace SimulatorWinForm
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.maxFood;
-            skillUp.multiplierSkill = 10;
+            SkillUp skillUp = new SkillUp(player1.point, player1.maxFood, 10);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.maxFood = skillUp.skill;
@@ -463,10 +439,7 @@ namespace SimulatorWinForm
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.maxWater;
-            skillUp.multiplierSkill = 10;
+            SkillUp skillUp = new SkillUp(player1.point, player1.maxWater, 10);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.maxWater = skillUp.skill;
@@ -474,10 +447,7 @@ namespace SimulatorWinForm
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.maxEnergy;
-            skillUp.multiplierSkill = 10;
+            SkillUp skillUp = new SkillUp(player1.point, player1.maxEnergy, 10);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.maxEnergy = skillUp.skill;
@@ -485,10 +455,7 @@ namespace SimulatorWinForm
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            SkillUp skillUp = new SkillUp();
-            skillUp.ace = player1.point;
-            skillUp.skill = player1.maxIntoxication;
-            skillUp.multiplierSkill = 10;
+            SkillUp skillUp = new SkillUp(player1.point, player1.maxIntoxication, 10);
             skillUp.SkillManipulated();
             player1.point = skillUp.ace;
             player1.maxIntoxication = skillUp.skill;
@@ -520,6 +487,7 @@ namespace SimulatorWinForm
             comboBox1.Visible = false;
         }
 
+       
         private void button8_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -528,7 +496,10 @@ namespace SimulatorWinForm
 
             string name = NickGetter.GetName();
 
-            
+            string offensiveNickname = NickGetter.GetOffensiveNickname();
+
+
+
 
             string[] rumor1 =
             {
@@ -551,8 +522,9 @@ namespace SimulatorWinForm
 
             string[] rumor3 =
             {
-                $"{name} оказывается то... это самое... ", $"этот как его блять... А! {name} кароче. ", $"Слышал об {name}? ",
-                $"Когда я учился в школе, был у меня один друг по имени {name}. Правда сам он называл себя {nickName} (но все звали его просто дибил). "
+                $"{name} оказывается то... это самое... ", $"этот как его блять... А! {name} кароче. ", $"Слышал о челике по имени {name}? ",
+                $"Когда я учился в школе, был у меня один друг по имени {name}. Правда сам он называл себя {nickName} (но все звали его просто {offensiveNickname}). ",
+                $"Помнишь того чела? Имя у него такое дибильное ещё... {name} чтоли или как то так."
             };
             int rum3 = rnd.Next(rumor3.Length);
 
@@ -562,10 +534,10 @@ namespace SimulatorWinForm
                 "Да блять он блять обосрал блять он перданул блять он обосрал свои эти шорты нахуй и пришлось ему от говна их немножко оттереть блять" +
                 " и бросить в стирку нахуй и потом жопу ещё поддмыть блять и всё это заняло время бля вооот сейчас надо пойти что-то другое одеть блять" +
                 " такая вот хуйня это всё из-за бухла блять бухло слабит типа расслабляет во всех смыслах этого слова ебать",
-                "Вчера отцу признался что он гей. Отец выглядел покинутым и лишь спросил: - У тебя парень есть? - Он грустно ответил что есть. Отец спросил еще " +
-                "И ты его прямо в пердачелло?. Он кивнул. - Долбишься в сракотан? Опять он грустно кивнул. Теребишь его в попчанский? Ебошишь его в шоколадницу?" +
-                "Месишь черное тесто с перцем? Заезжаешь на ночь в Попенгаген? Смотрел фильм Чарли и шоколадная фабрика? Он послал нахуй отца и ушел."
-                
+                $"Кароч {name} вчера отцу признался что он гей. Его отец выглядел покинутым и лишь спросил: - У тебя парень есть? - {name} грустно ответил что есть. Его отец спросил еще " +
+                $"И ты его прямо в пердачелло?. {name} кивнул. - Долбишься в сракотан? Опять {name} грустно кивнул. Теребишь его в попчанский? Ебошишь его в шоколадницу?" +
+                $"Месишь черное тесто с перцем? Заезжаешь на ночь в Попенгаген? Смотрел фильм Чарли и шоколадная фабрика? {name} послал нахуй отца и ушел."
+
 
             };
             int rum4 = rnd.Next(rumor4.Length);

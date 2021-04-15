@@ -11,8 +11,14 @@ namespace SimulatorWinForm
     {
         public int ace;
         public int skill;
-        public int multiplierSkill = 1;
+        public int multiplierSkill;
 
+        public SkillUp(int a, int s, int m)
+        {
+            ace = a;
+            skill = s;
+            multiplierSkill = m;
+        }
         public void SkillManipulated()
         {
             if (ace > 0)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimulatorWinForm
 {
-    static class NickGetter
+    class NickGetter
     {
         static string[] nickNames =
            {
@@ -27,21 +27,34 @@ namespace SimulatorWinForm
 
         static string[] name =
             {
-                "Васян", "Путин", "Директор нашего автопарка", "Мэддисон", "Скайшедоу", "СТХ", "Sony", "Лысый из лоста", "Уолтер Уайт",
-                "Юрий Быков", "Юрий Хованский", "Влад А4", "Камикадзе Д"
+                "Васян", "Путин", "Директор нашего автопарка кароче", "Мэддисон", "Скайшедоу", "СТХ", "Sony", "Лысый из лоста", "Уолтер Уайт",
+                "Юрий Быков", "Юрий Хованский", "Влад А4", "Камикадзе Д", "Жириновский", "Озон671Гейс", "Абдуль"
             };
+
+        static string[] offensiveNickname =
+            {
+                "Дибил", "Хуютин", "Толстяк", "Ёбнутый", "Мастер Идей", "Стет", "Джузик", "Лысик", "Жопик",
+                "Юрец", "Рыжий", "Инвалид", "Покемон", "Хмырь", "Гей", "Биборан",
+            };
+
         
         public static string GetNick()
         {
-            Random rnd = new Random();
-            int nickName = rnd.Next(nickNames.Length);
+            Random rnd1 = new Random();
+            int nickName = rnd1.Next(nickNames.Length);
             return nickNames[nickName];
         }
         public static string GetName()
         {
-            Random rnd = new Random();
-            int name1 = rnd.Next(name.Length);
+            Random rnd2 = new Random();
+            int name1 = rnd2.Next(name.Length);
             return name[name1];
+        }
+        public static string GetOffensiveNickname()
+        {
+            Random rnd3 = new Random();
+            int oNick1 = rnd3.Next(offensiveNickname.Length);
+            return offensiveNickname[oNick1];
         }
     }
 }
