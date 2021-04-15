@@ -154,5 +154,8 @@
   <ItemGroup>
     <None Include="Resources\mask-only-fi2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\taxi_93979.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
