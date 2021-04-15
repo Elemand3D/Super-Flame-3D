@@ -105,6 +105,7 @@ namespace SimulatorWinForm
             this.labelMaxIntoxication = new System.Windows.Forms.Label();
             this.labelDeath = new System.Windows.Forms.Label();
             this.linkDebt = new System.Windows.Forms.LinkLabel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -133,6 +134,7 @@ namespace SimulatorWinForm
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 77);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -160,7 +162,7 @@ namespace SimulatorWinForm
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1049, 527);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Основа";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // comboBox1
@@ -752,7 +754,7 @@ namespace SimulatorWinForm
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1049, 527);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Торговый центр";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // labelWater
@@ -1016,6 +1018,15 @@ namespace SimulatorWinForm
             this.linkDebt.TabStop = true;
             this.linkDebt.Text = "Долги: 0";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1049, 527);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Автосервис";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1159,6 +1170,7 @@ namespace SimulatorWinForm
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 

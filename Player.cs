@@ -58,16 +58,22 @@ namespace SimulatorWinForm
 
         // Состояние машины.
         public double wheels = 60D;
-        public double suspension = 60D;
-        public double engine = 60D;
-        public double carBody = 60D;
-        public double dirt = 60D;
-        public double gas = 60D;
+        public double maxWheels = 100D;
 
-        //Манипуляция скиллами
-        public int ace;
-        public int skill;
-        public int multiplierSkill;
+        public double suspension = 60D;
+        public double maxSuspension = 100D;
+
+        public double engine = 60D;
+        public double maxEngine = 100D;
+
+        public double carBody = 60D;
+        public double maxCarBody = 100D;
+
+        public double dirt = 60D;
+
+        public double gas = 60D;
+        public double maxGas = 100D;
+
 
         //2. Конструтор
         public Player()
@@ -119,11 +125,21 @@ namespace SimulatorWinForm
 
         // Состояние машины.
             wheels = 60D;
+            maxWheels = 100D;
+
             suspension = 60D;
+            maxSuspension = 100D;
+
             engine = 60D;
+            maxEngine = 100D;
+
             carBody = 60D;
+            maxCarBody = 100D;
+
             dirt = 60D;
+
             gas = 60D;
+            maxGas = 100D;
 
 
 
@@ -205,25 +221,50 @@ namespace SimulatorWinForm
             {
                 wheels = 0;
             }
+            if (wheels > maxWheels)
+            {
+                wheels = maxWheels;
+            }
+
             if (suspension < 0)
             {
                 suspension = 0;
             }
+            if (suspension > maxSuspension)
+            {
+                suspension = maxSuspension;
+            }
+
             if (engine < 0)
             {
                 engine = 0;
             }
+            if (engine > maxEngine)
+            {
+                engine = maxEngine;
+            }
+
             if (carBody < 0)
             {
                 carBody = 0;
             }
+            if (carBody > maxCarBody)
+            {
+                carBody = maxCarBody;
+            }
+
             if (dirt < 0)
             {
                 dirt = 0;
             }
+
             if (gas < 0)
             {
                 gas = 0;
+            }
+            if (gas > maxGas)
+            {
+                gas = maxGas;
             }
 
             if (wheels <= 0 || suspension <= 0 || engine <= 0 || carBody <= 0 || gas <= 0)
