@@ -75,7 +75,6 @@ namespace SimulatorWinForm
             this.button3 = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
             this.labelDay = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.labelNick = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -154,9 +153,6 @@ namespace SimulatorWinForm
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.labelTime);
-            this.tabPage1.Controls.Add(this.labelDay);
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.labelNick);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -714,7 +710,7 @@ namespace SimulatorWinForm
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(755, 432);
+            this.labelTime.Location = new System.Drawing.Point(949, 644);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(64, 13);
             this.labelTime.TabIndex = 3;
@@ -723,20 +719,11 @@ namespace SimulatorWinForm
             // labelDay
             // 
             this.labelDay.AutoSize = true;
-            this.labelDay.Location = new System.Drawing.Point(793, 411);
+            this.labelDay.Location = new System.Drawing.Point(959, 629);
             this.labelDay.Name = "labelDay";
-            this.labelDay.Size = new System.Drawing.Size(13, 13);
+            this.labelDay.Size = new System.Drawing.Size(46, 13);
             this.labelDay.TabIndex = 2;
-            this.labelDay.Text = "1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(759, 411);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "День:";
+            this.labelDay.Text = "День: 1";
             // 
             // button1
             // 
@@ -850,7 +837,7 @@ namespace SimulatorWinForm
             // fileOneToolStripMenuItem
             // 
             this.fileOneToolStripMenuItem.Name = "fileOneToolStripMenuItem";
-            this.fileOneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileOneToolStripMenuItem.Size = new System.Drawing.Size(80, 22);
             this.fileOneToolStripMenuItem.Text = "1";
             // 
             // toolToolStripMenuItem
@@ -864,7 +851,7 @@ namespace SimulatorWinForm
             // toolDickToolStripMenuItem
             // 
             this.toolDickToolStripMenuItem.Name = "toolDickToolStripMenuItem";
-            this.toolDickToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toolDickToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.toolDickToolStripMenuItem.Text = "хуй";
             // 
             // timer1
@@ -875,7 +862,7 @@ namespace SimulatorWinForm
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 633);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 657);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1069, 22);
             this.statusStrip1.TabIndex = 2;
@@ -1033,7 +1020,7 @@ namespace SimulatorWinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 655);
+            this.ClientSize = new System.Drawing.Size(1069, 679);
             this.Controls.Add(this.linkDebt);
             this.Controls.Add(this.labelDeath);
             this.Controls.Add(this.labelMaxIntoxication);
@@ -1046,6 +1033,8 @@ namespace SimulatorWinForm
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.labelDay);
+            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBoxHp);
             this.Controls.Add(this.labelMoney);
@@ -1057,9 +1046,10 @@ namespace SimulatorWinForm
             this.Controls.Add(this.labelEnergy);
             this.Controls.Add(this.labelWater);
             this.Controls.Add(this.labelFood);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Flame Simulator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1103,7 +1093,6 @@ namespace SimulatorWinForm
         private System.Windows.Forms.ToolStripMenuItem fileOneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolDickToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelDay;
         private System.Windows.Forms.Label labelTime;

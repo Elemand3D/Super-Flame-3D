@@ -11,8 +11,9 @@ namespace SimulatorWinForm
         //1. Поля
 
         // Параметры игрока.
-        public bool life = true;
+        public bool life = true; // под вопросом
         public bool onJob = false;
+        public bool workingCar = true;
 
         public int hp = 100;
         public int maxHp = 100;
@@ -55,11 +56,25 @@ namespace SimulatorWinForm
         public int mask = 0;
         public int accessory = 0;
 
+        // Состояние машины.
+        public double wheels = 60D;
+        public double suspension = 60D;
+        public double engine = 60D;
+        public double carBody = 60D;
+        public double dirt = 60D;
+        public double gas = 60D;
+
+        //Манипуляция скиллами
+        public int ace;
+        public int skill;
+        public int multiplierSkill;
+
         //2. Конструтор
         public Player()
         {
             life = true;
             onJob = false;
+            workingCar = true;
 
             hp = 100;
             maxHp = 100;
@@ -101,8 +116,20 @@ namespace SimulatorWinForm
             glasses = 0;
             mask = 0;
             accessory = 0;
-    
+
+        // Состояние машины.
+            wheels = 60D;
+            suspension = 60D;
+            engine = 60D;
+            carBody = 60D;
+            dirt = 60D;
+            gas = 60D;
+
+
+
+
         }
+
         //3. Метод
         public void ParametersLogic(Double milSec)
         {
@@ -166,15 +193,44 @@ namespace SimulatorWinForm
             {
                 intoxication = 0;
             }
-            /*
-            if (!life)
+            // Настройка прокачки.
+            if (exp > 9999)
             {
-                labelDeath.Visible = true;
-                labelDeath.Text = ($"{labelNick}, ты умер!");
-                tabControl1.Enabled = false;
-
+                exp -= 10000;
+                level++;
+                point++;
             }
-            */
+            // Настройка машины.
+            if (wheels < 0)
+            {
+                wheels = 0;
+            }
+            if (suspension < 0)
+            {
+                suspension = 0;
+            }
+            if (engine < 0)
+            {
+                engine = 0;
+            }
+            if (carBody < 0)
+            {
+                carBody = 0;
+            }
+            if (dirt < 0)
+            {
+                dirt = 0;
+            }
+            if (gas < 0)
+            {
+                gas = 0;
+            }
+
+            if (wheels <= 0 || suspension <= 0 || engine <= 0 || carBody <= 0 || gas <= 0)
+            {
+                workingCar = false;
+            }
+
         }
     }
 }

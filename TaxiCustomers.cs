@@ -15,6 +15,8 @@ namespace SimulatorWinForm
 		public int gender;  //0 - мужик, 1 - телка
 		public int race;    //0 - украина, 1 - россия, 2 - США, 3 - ЯПонец
 
+
+
 		public TaxiCustomers(string n, int g, int r)
 		{
 			Random rand = new Random();
@@ -27,6 +29,7 @@ namespace SimulatorWinForm
 			dickLength = rand.Next(5, 20);
 			
 		}
+
 
 		
 	}

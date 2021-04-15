@@ -22,13 +22,7 @@ namespace SimulatorWinForm
         double milSec = 49D;// Номер секунд 00.00-60.00
 
 
-        // Состояние машины.
-        double wheels = 60D;
-        double suspension = 60D;
-        double engine = 60D;
-        double carBody = 60D;
-        double dirt = 60D;
-        double gas = 60D;
+        
 
 
         //WindowsMediaPlayer soundPlayer = new WindowsMediaPlayer();
@@ -60,6 +54,24 @@ namespace SimulatorWinForm
             {
                 listBox1.Items.Insert(0, "Уровень повышен! Добавлено очко!");
             }
+            if (player1.wheels <= 0 )
+            {
+                listBox1.Items.Insert(0, "Не хватает колёс!");
+            }
+            if (player1.suspension <= 0)
+            {
+                listBox1.Items.Insert(0, "Подвеска слишком занижена! (Разъёбана)");
+            }
+            if (player1.engine <= 0 || player1.gas <= 0)
+            {
+                listBox1.Items.Insert(0, "Машина не заводится!");
+            }
+            if (player1.carBody <= 0)
+            {
+                listBox1.Items.Insert(0, "В тачке дырки размером с пассажира!");
+            }
+            
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)       // Таймер 10 мс.
@@ -70,13 +82,7 @@ namespace SimulatorWinForm
             LabeColorUpdate();
 
 
-            // Настройка прокачки.
-            if (player1.exp > 9999)
-            {
-                player1.exp -= 10000;
-                player1.level++;
-                player1.point++;
-            }
+            
             progressBar1.Value = (int)player1.exp;
             
 
@@ -122,7 +128,7 @@ namespace SimulatorWinForm
             }
 
 
-            labelDay.Text = ($"{day}");                                 // Обновлять лейбл дня.
+            labelDay.Text = ($"День: {day}");                                 // Обновлять лейбл дня.
             milSec += 0.01d;                                            // Добавить 0.01 секунды.
 
         }
@@ -170,17 +176,17 @@ namespace SimulatorWinForm
             labelPoint.Text = ($"Нераспределённых очков:{player1.point}");
 
             // Обновление состояния машины.
-            Double wh = Math.Round(wheels, 1);
+            Double wh = Math.Round(player1.wheels, 1);
             labelWheels.Text = ($"Колёса: {wh}%");
-            Double su = Math.Round(suspension, 1);
+            Double su = Math.Round(player1.suspension, 1);
             labelSuspension.Text = ($"Подвеска: {su}%");
-            Double en = Math.Round(engine, 1);
+            Double en = Math.Round(player1.engine, 1);
             labelEngine.Text = ($"Двигатель: {en}%");
-            Double cb = Math.Round(carBody, 1);
+            Double cb = Math.Round(player1.carBody, 1);
             labelCarBody.Text = ($"Кузов: {cb}%");
-            Double di = Math.Round(dirt, 1);
+            Double di = Math.Round(player1.dirt, 1);
             labelDirt.Text = ($"Грязь: {di}%");
-            Double ga = Math.Round(gas, 1);
+            Double ga = Math.Round(player1.gas, 1);
             labelGas.Text = ($"Бензин: {ga}%");
         }
 
@@ -257,8 +263,7 @@ namespace SimulatorWinForm
             button5.Enabled = true;
             button7.Enabled = false;
         }
-        //Клиенты такси))
-        //Тест репозиториев
+        //Клиенты такси
         TaxiCustomers[] customers = new TaxiCustomers[32];
         public string GetRaceName(int race)
         {
@@ -268,6 +273,7 @@ namespace SimulatorWinForm
                 case 1: return "Россия";
                 case 2: return "США";
                 case 3: return "Япония";
+                case 4: return "Латвия, Рига";
             }
             return "Неизвестно";
         }
@@ -281,62 +287,70 @@ namespace SimulatorWinForm
             }
             return "Неизвестно";
         }
-        private void button6_Click(object sender, EventArgs e)   // При нажатии кнопки создаётся толпа людей каждый раз?
+        private void button6_Click(object sender, EventArgs e)   
         {
-            int r = RandomCustomers();
-            customers[0] = new TaxiCustomers("Гордон Фримен", 0, 2);
-            customers[1] = new TaxiCustomers("Лысый Из Лоста", 0, 2);
-            customers[2] = new TaxiCustomers("Китаец Из Лоста", 0, 3);
-            customers[3] = new TaxiCustomers("G-MAN", 0, 228);
-            customers[4] = new TaxiCustomers("Ozon671Games3", 0, 1);
-            customers[5] = new TaxiCustomers("Абдуль", 0, 1);
-            customers[6] = new TaxiCustomers("Навальный", 0, 0);
-            customers[7] = new TaxiCustomers("Moby (яйценюх)", 0, 0);
-            customers[8] = new TaxiCustomers("Кличко", 0, 0);
-            customers[9] = new TaxiCustomers("Геральт Из Ривии", 0, 228);
-            RandomCustomers();
-
-            DialogResult dialogResult = MessageBox.Show("Имя: " + customers[r].name + Environment.NewLine
-            + "Гражданство: " + GetRaceName(customers[r].race) + Environment.NewLine
-            + "Пол: " + GetGenderName(customers[r].gender) + Environment.NewLine
-            + "Расстояние: " + customers[r].distance + " метров" + Environment.NewLine
-            + "Деньги за поездку: " + customers[r].fare + " руб.", "Упс", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
+            ListBoxAdd();
+            if (player1.workingCar)
             {
+                int r = RandomCustomers();
+                customers[0] = new TaxiCustomers("Гордон Фримен", 0, 2);
+                customers[1] = new TaxiCustomers("Лысый Из Лоста", 0, 2);
+                customers[2] = new TaxiCustomers("Китаец Из Лоста", 0, 3);
+                customers[3] = new TaxiCustomers("G-MAN", 0, 0);
+                customers[4] = new TaxiCustomers("Ozon671Games3", 0, 1);
+                customers[5] = new TaxiCustomers("Абдуль", 0, 1);
+                customers[6] = new TaxiCustomers("Навальный", 0, 0);
+                customers[7] = new TaxiCustomers("Moby (яйценюх)", 0, 0);
+                customers[8] = new TaxiCustomers("Кличко", 0, 0);
+                customers[9] = new TaxiCustomers("Геральт Из Ривии", 0, 4);
+                customers[10] = new TaxiCustomers("Макс Пейн", 0, 2);
+                RandomCustomers();
+
+                DialogResult dialogResult = MessageBox.Show("Имя: " + customers[r].name + Environment.NewLine
+                + "Гражданство: " + GetRaceName(customers[r].race) + Environment.NewLine
+                + "Пол: " + GetGenderName(customers[r].gender) + Environment.NewLine
+                + "Расстояние: " + customers[r].distance + " метров" + Environment.NewLine
+                + "Деньги за поездку: " + customers[r].fare + " руб.", "Упс", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
 
 
-                milSec += customers[r].distance / 4;
-                player1.exp += customers[r].distance / 7;
-                CarDamage();
-                ListBoxAdd();
-                MoneyManagement();
-                
+                    milSec += customers[r].distance / 4;
+                    player1.exp += customers[r].distance / 7;
+                    CarDamage();
+                    MoneyManagement();
 
+
+                }
             }
-
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Машине пизда, пора в автосервис", "Блять!", MessageBoxButtons.OK);
+            }
         }
         public int RandomCustomers()
         {
             Random rand = new Random();
-            int r = rand.Next(10);
+            int r = rand.Next(11);
             return r;
         }
+        // Машина дамажится от дистанции
         public void CarDamage()
         {
             int r = RandomCustomers();
-            wheels -= customers[r].distance / 4000;
-            suspension -= customers[r].distance / 3200;
-            engine -= customers[r].distance / 4800;
-            carBody -= customers[r].distance / 3800;
-            gas -= customers[r].distance / 1600;
-            dirt += customers[r].distance / 4000;
+            player1.wheels -= customers[r].distance / 4000;
+            player1.suspension -= customers[r].distance / 3200;
+            player1.engine -= customers[r].distance / 4800;
+            player1.carBody -= customers[r].distance / 3800;
+            player1.gas -= customers[r].distance / 1600;
+            player1.dirt += customers[r].distance / 4000;
 
 
         }
 
         
-
+        // Деньги прибавляются от дистанции
         public void MoneyManagement()
         {
             int r = RandomCustomers();
@@ -359,7 +373,7 @@ namespace SimulatorWinForm
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            player1.life = false;
+            player1.wheels -= 10;
             
 
         }
