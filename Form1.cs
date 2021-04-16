@@ -363,8 +363,8 @@ namespace SimulatorWinForm
             day++;
             
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        // Чилить 10 минут
+        private void button2_Click(object sender, EventArgs e) 
         {
             milSec += 600;
             
@@ -559,7 +559,15 @@ namespace SimulatorWinForm
             DialogResult dialogResult = MessageBox.Show((rumor1[rum1]) + (rumor2[rum2]) + (rumor3[rum3]) + (rumor4[rum4]), "Вы узнаёте хуйню", MessageBoxButtons.OK);
             
         }
-
-        
+        // автосервис
+        private void button9_Click(object sender, EventArgs e)
+        {
+            player1.money -= 100;
+            player1.gas += player1.maxGas;
+            player1.wheels += player1.maxWheels;
+            player1.suspension += player1.maxSuspension;
+            player1.carBody += player1.maxCarBody;
+            player1.workingCar = true;
+        }
     }
 }

@@ -73,11 +73,12 @@ namespace SimulatorWinForm
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.labelDay = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.labelNick = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.labelDay = new System.Windows.Forms.Label();
             this.labelWater = new System.Windows.Forms.Label();
             this.labelFood = new System.Windows.Forms.Label();
             this.labelIntoxication = new System.Windows.Forms.Label();
@@ -105,7 +106,7 @@ namespace SimulatorWinForm
             this.labelMaxIntoxication = new System.Windows.Forms.Label();
             this.labelDeath = new System.Windows.Forms.Label();
             this.linkDebt = new System.Windows.Forms.LinkLabel();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -120,6 +121,7 @@ namespace SimulatorWinForm
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -709,24 +711,6 @@ namespace SimulatorWinForm
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(949, 644);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(64, 13);
-            this.labelTime.TabIndex = 3;
-            this.labelTime.Text = "10:00:00.00";
-            // 
-            // labelDay
-            // 
-            this.labelDay.AutoSize = true;
-            this.labelDay.Location = new System.Drawing.Point(959, 629);
-            this.labelDay.Name = "labelDay";
-            this.labelDay.Size = new System.Drawing.Size(46, 13);
-            this.labelDay.TabIndex = 2;
-            this.labelDay.Text = "День: 1";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(953, 472);
@@ -756,6 +740,34 @@ namespace SimulatorWinForm
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Торговый центр";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1049, 527);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Автосервис";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(949, 644);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(64, 13);
+            this.labelTime.TabIndex = 3;
+            this.labelTime.Text = "10:00:00.00";
+            // 
+            // labelDay
+            // 
+            this.labelDay.AutoSize = true;
+            this.labelDay.Location = new System.Drawing.Point(959, 629);
+            this.labelDay.Name = "labelDay";
+            this.labelDay.Size = new System.Drawing.Size(46, 13);
+            this.labelDay.TabIndex = 2;
+            this.labelDay.Text = "День: 1";
             // 
             // labelWater
             // 
@@ -1018,14 +1030,15 @@ namespace SimulatorWinForm
             this.linkDebt.TabStop = true;
             this.linkDebt.Text = "Долги: 0";
             // 
-            // tabPage3
+            // button9
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1049, 527);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Автосервис";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.button9.Location = new System.Drawing.Point(378, 212);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(102, 23);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "Чинить машину))";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Form1
             // 
@@ -1080,6 +1093,7 @@ namespace SimulatorWinForm
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
@@ -1171,6 +1185,7 @@ namespace SimulatorWinForm
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button9;
     }
 }
 

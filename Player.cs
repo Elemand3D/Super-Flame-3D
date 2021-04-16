@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SimulatorWinForm
 {
@@ -209,6 +210,22 @@ namespace SimulatorWinForm
             {
                 intoxication = 0;
             }
+            
+            if (food <= 0 || water <= 0 || energy <= 0)
+            {
+                if (milSec > 59.9)
+                {
+                    hp -= 1;
+                }
+            }
+
+            if (hp <= 0)
+            {
+                debt += 30000;
+                hp += maxHp;
+                DialogResult dialogResult = MessageBox.Show("Ты долбаёб", "Блять!", MessageBoxButtons.OK);
+            }
+
             // Настройка прокачки.
             if (exp > 9999)
             {
