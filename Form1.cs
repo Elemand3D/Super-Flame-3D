@@ -306,27 +306,29 @@ namespace SimulatorWinForm
                 customers[10] = new TaxiCustomers("Макс Пейн", 0, 2);
                 RandomCustomers();
 
-                DialogResult dialogResult = MessageBox.Show("Имя: " + customers[r].name + Environment.NewLine
-                + "Гражданство: " + GetRaceName(customers[r].race) + Environment.NewLine
-                + "Пол: " + GetGenderName(customers[r].gender) + Environment.NewLine
-                + "Расстояние: " + customers[r].distance + " метров" + Environment.NewLine
-                + "Деньги за поездку: " + customers[r].fare + " руб.", "Упс", MessageBoxButtons.YesNo);
+                TaxiForm newForm = new TaxiForm(player1, customers[r].name);
+                newForm.ShowDialog();
+                //DialogResult dialogResult = MessageBox.Show("Имя: " + customers[r].name + Environment.NewLine
+                //+ "Гражданство: " + GetRaceName(customers[r].race) + Environment.NewLine
+                //+ "Пол: " + GetGenderName(customers[r].gender) + Environment.NewLine
+                //+ "Расстояние: " + customers[r].distance + " метров" + Environment.NewLine
+                //+ "Деньги за поездку: " + customers[r].fare + " руб.", "Упс", MessageBoxButtons.YesNo);
 
-                if (dialogResult == DialogResult.Yes)
+                if (player1.life)
                 {
 
 
-                    milSec += customers[r].distance / 4;
+                    milsec += customers[r].distance / 4;
                     player1.exp += customers[r].distance / 7;
-                    CarDamage();
-                    MoneyManagement();
+                    cardamage();
+                    moneymanagement();
 
 
                 }
             }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Машине пизда, пора в автосервис", "Блять!", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Машине пизда, кажись пора в автосервис", "Блять!", MessageBoxButtons.OK);
             }
         }
         public int RandomCustomers()

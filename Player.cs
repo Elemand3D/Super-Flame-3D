@@ -12,7 +12,7 @@ namespace SimulatorWinForm
         //1. Поля
 
         // Параметры игрока.
-        public bool life = true; // под вопросом
+        public bool life = false; // под вопросом
         public bool onJob = false;
         public bool workingCar = true;
 
