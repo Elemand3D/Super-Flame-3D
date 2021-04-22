@@ -306,7 +306,9 @@ namespace SimulatorWinForm
                 customers[10] = new TaxiCustomers("Макс Пейн", 0, 2);
                 RandomCustomers();
 
-                TaxiForm newForm = new TaxiForm(player1, customers[r].name);
+                TaxiForm newForm = new TaxiForm();
+                newForm.label1.Text = customers[r].name;
+                newForm.life = player1.life; // Передача ссылки на бул ЛАЙФ охуеть а че так можно было?
                 newForm.ShowDialog();
                 //DialogResult dialogResult = MessageBox.Show("Имя: " + customers[r].name + Environment.NewLine
                 //+ "Гражданство: " + GetRaceName(customers[r].race) + Environment.NewLine
@@ -316,14 +318,11 @@ namespace SimulatorWinForm
 
                 if (player1.life)
                 {
-
-
-                    milsec += customers[r].distance / 4;
+                    milSec += customers[r].distance / 4;
                     player1.exp += customers[r].distance / 7;
-                    cardamage();
-                    moneymanagement();
-
-
+                    CarDamage();
+                    MoneyManagement();
+                    player1.life = false;
                 }
             }
             else

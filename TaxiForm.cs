@@ -12,20 +12,25 @@ namespace SimulatorWinForm
 {
     public partial class TaxiForm : Form
     {
-        string name;
-        Player player1;
-        public TaxiForm(Player player1, string name)
+        public bool life;
+        public TaxiForm()
         {
             InitializeComponent();
-            this.name = name;
-            label1.Text = name;
-            this.player1 = player1;
             
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            player1.life = true;
+            life = false;
+            this.Close();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            life = true;
+            this.Close();
+
         }
     }
 }
